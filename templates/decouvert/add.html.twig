@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Gestion des produits</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{# form : variable envoyée par le contrôleur #}
+			{{ form_start(form, { attr: { novalidate: 'novalidate' } } ) }}
+				<p>
+					{{ form_label(form.description, 'Description:') }}
+					{{ form_widget(form.description,
+						{ attr:
+							{
+								class: "form-control",
+							}
+						}
+					)}}
+				</p>
+				{% if decouvert.image %}
+					<p>
+						<img style="width:200px;" src="{{ asset('img/decouvert/' ~ decouvert.image) }}">
+					</p>
+				{% endif %}
+				
+				
+				<p>
+					{{ form_label(form.image, 'Image:') }}
+					{{ form_widget(form.image,
+						{ attr:
+							{
+								class: "form-control",
+							}
+						}
+					)}}
+				</p>
+				<p>
+					{{ form_label(form.continent, 'Continent:') }}
+					{{ form_widget(form.continent,
+						{ attr:
+							{
+								class: "form-control",
+							}
+						}
+					)}}
+				</p>
+				<p>
+					<input type="submit" class="btn btn-info" value="Valider">
+				</p>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}
+
+
+
+
+
+
+

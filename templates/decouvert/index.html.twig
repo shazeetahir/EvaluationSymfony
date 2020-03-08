@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{%  block body %}
+
+    <div class="row">
+		<div class="col">
+			<h1>Découvert</h1>
+			<h5>Les articles sont classés par continent</h5>
+		</div>
+	</div>
+	<div class="row">
+		{% for decouvert in results %}
+			<div class="col-sm-3">
+			
+				<div class="zoom">
+					<a href="{{ url('decouvert.details', { id: decouvert.id } ) }}">
+						<img src="{{ asset('img/decouvert/' ~ decouvert.image) }}" class="img-fluid" alt="">
+					</a>
+				</div>
+
+				<h4>{{ decouvert.continent.name }}</h4>
+				<p>{{ decouvert.description }}</p>
+				<div>
+					<p>
+						<a href="{{ url('decouvert.details', { id: decouvert.id } ) }}" class="btn btn-primary">Visualiser</a>
+					</p>
+					<p>
+						<a href="{{ url('decouvert.update', { id: decouvert.id } ) }}" class="btn btn-warning">Modify</a>
+					</p>
+					<p>
+						<a href="{{ url('decouvert.delete', { id: decouvert.id } ) }}" class="btn btn-danger">Supprimer</a>
+					</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+    
+{%  endblock %}
+
+
+
+
+
+
